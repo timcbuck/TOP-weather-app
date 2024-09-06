@@ -1,29 +1,32 @@
 const key = 'A44RMWA58WTT8X8RZ6BEWFGQ2';
-let urlBase = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`;
-let city = 'adelaide';
-let unitGroup = 'uk';
+const urlBase = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`;
 
+// Add submit event listener to the form
+const form = document.getElementById('weatherForm');
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    // Get values from input fields
+    const city = document.getElementById('city').value;
+    const unitGroup = document.getElementById('unitGroup').value;
+    // Fetch and print the weather data
+    printTodaysWeatherData(city, unitGroup);
 
-printCurrentWeatherData('khon kaen', 'uk');
+})
 
-async function getWeatherData(city, unitGroup) {
+// Get today's weather data
+async function getTodaysWeatherData(city, unitGroup) {
     try {
         let url = urlBase + `${city}?unitGroup=${unitGroup}&key=${key}`;
         const response = await fetch(url);
         const json = await response.json();
-        return json;
+        return json.days[0];
     } catch (error) {
         alert(error);
     }
 }
 
-async function getCurrentWeatherData(city, unitGroup) {
-    let weatherData = await getWeatherData(city, unitGroup);
-    return weatherData.days[0];
-}
-
-async function printCurrentWeatherData(city, unitGroup) {
-    let weatherData = await getCurrentWeatherData(city, unitGroup);
+async function printTodaysWeatherData(city, unitGroup) {
+    let weatherData = await getTodaysWeatherData(city, unitGroup);
     console.log(`Current temp: ${weatherData.temp}`);
     console.log(`Max temp: ${weatherData.tempmax}`);
     console.log(`Min temp: ${weatherData.tempmin}`);
