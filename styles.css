@@ -1,0 +1,73 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #343d4b;
+    color: white;
+    margin: 50px 80px 0px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+#tempInfoContainer {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.infoCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid #222831 1px;
+    border-radius: 0.6em;
+    padding: 15px 15px 30px 15px;
+    gap: 20px;
+    background-color: #222831;
+}
+
+p {
+    font-size: 36px;
+    margin: 0;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey background */
+    border-top: 8px solid #3498db; /* Blue border on top */
+    border-radius: 50%; /* Circular shape */
+    width: 50px; /* Size of the spinner */
+    height: 50px; /* Size of the spinner */
+    animation: spin 1s linear infinite; /* Spin animation */
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button {
+    border-radius: 8px;
+    padding: 9px;
+    cursor: pointer;
+    background-color: white;
+}
+
+button:hover {
+    background-color: lightgray;
+}

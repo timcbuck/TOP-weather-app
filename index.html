@@ -4,20 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js" defer></script>
     <link type="text/css" rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Weather App</h1>
+    <h1>Get today's weather</h1>
     <form id="weatherForm">
-        <label for="city">Enter city name: </label>
-        <input type="text" id="city">
-        <label for="unitGroup">Choose measurement format: </label>
-        <select id="unitGroup">
-            <option value="us">us</option>
-            <option value="uk">uk</option>
-        </select>
-        <button type="submit">Submit</button>   
+        <div class="formCity">
+            <label for="city">Enter city name: </label>
+            <input type="text" id="city" value="adelaide">
+        </div>
+        <div class="formUnitGroup">
+            <label for="unitGroup">Choose measurement format: </label>
+            <select id="unitGroup">
+                <option value="uk">uk</option>
+                <option value="us">us</option>
+            </select>
+        </div>
+        <button type="submit">Get weather!</button>   
     </form>
+
+    <div id="tempInfoContainer">
+        <div class="infoCard" id="cityInfo">
+            <h2>City name</h2>
+            <div class="spinner"></div>
+            <p>Adelaide</p>
+        </div>
+        <div class="infoCard" id="currentTempInfo">
+            <h2>Current temperature</h2>
+            <div class="spinner"></div>
+            <p>15.6&deg;C</p>
+        </div>
+        <div class="infoCard" id="minTempInfo">
+            <h2>Min temperature</h2>
+            <div class="spinner"></div>
+            <p>10.4&deg;C</p>
+        </div>
+        <div class="infoCard" id="maxTempInfo">
+            <h2>Max temperature</h2>
+            <div class="spinner"></div>
+            <p>21&deg;C</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
